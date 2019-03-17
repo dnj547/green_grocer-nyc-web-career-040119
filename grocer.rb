@@ -26,11 +26,7 @@ def apply_coupons(cart, coupons)
               new_hash["#{item_name} W/COUPON"] = item_attributes
               new_hash["#{item_name} W/COUPON"][:count] = coupon[:num]
               new_hash["#{item_name} W/COUPON"][:price] = coupon[:cost]
-              if without == 0
-                new_hash.delete(item_name)
-              else
-                new_hash[item_name][:count] = without
-              end
+              new_hash[item_name][:count] = without
             end
           end
         end
