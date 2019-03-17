@@ -19,16 +19,13 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     coupon.each do |coupon_key, coupon_value|
       cart.each do |item_name, item_attributes|
-        item_attributes.each do |attributes_key, attributes_value|
-          if coupon[:item] == item_name
-            binding.pry
-            if coupon[:num] >= item_attributes[:count]
-              without = item_attributes[:count] - coupon[:num]
-              new_hash["#{item_name} W/COUPON"] = item_attributes
-              new_hash["#{item_name} W/COUPON"][:count] = coupon[:num]
-              new_hash["#{item_name} W/COUPON"][:price] = coupon[:cost]
-              new_hash[item_name][:count] = without
-            end
+        if coupon[:item] == item_name
+          if coupon[:num] >= item_attributes[:count]
+            without = item_attributes[:count] - coupon[:num]
+            new_hash["#{item_name} W/COUPON"] = item_attributes
+            new_hash["#{item_name} W/COUPON"][:count] = coupon[:num]
+            new_hash["#{item_name} W/COUPON"][:price] = coupon[:cost]
+            new_hash[item_name][:count] = without
           end
         end
       end
