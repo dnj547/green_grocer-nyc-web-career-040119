@@ -23,6 +23,7 @@ def apply_coupons(cart, coupons)
           if coupon[:num] >= item_attributes[:count]
             without = item_attributes[:count] - coupon[:num]
             new_hash["#{item_name} W/COUPON"] = item_attributes
+            binding.pry
             new_hash["#{item_name} W/COUPON"][:count] = coupon[:num]
             new_hash["#{item_name} W/COUPON"][:price] = coupon[:cost]
             new_hash[item_name][:count] = without
