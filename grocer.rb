@@ -55,4 +55,5 @@ def checkout(cart, coupons)
     price_array.inject(:+) * 0.9
   else
     price_array.inject(:+)
+  end
 end
