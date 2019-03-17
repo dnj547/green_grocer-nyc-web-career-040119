@@ -43,11 +43,11 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-  consolidated = consolidate_cart(cart)
-  coupons_applied = apply_coupons(consolidated, coupons)
-  clearance_applied = apply_clearance(coupons_applied)
+  cart1 = consolidate_cart(cart)
+  cart2 = apply_coupons(cart1, coupons)
+  cart3 = apply_clearance(cart2)
   price_array = []
-  clearance_applied.each do |name, attributes|
+  cart3.each do |name, attributes|
     price_array << attributes[:price]
   end
   price_array.inject(:+)
