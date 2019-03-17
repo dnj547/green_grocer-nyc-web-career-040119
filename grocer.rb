@@ -51,5 +51,8 @@ def checkout(cart, coupons)
     binding.pry
     price_array << attributes[:price]
   end
-  price_array.inject(:+)
+  if price_array.inject(:+) > 100
+    price_array.inject(:+) * 0.9
+  else
+    price_array.inject(:+)
 end
