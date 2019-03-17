@@ -50,7 +50,6 @@ def checkout(cart, coupons)
   cart3.each do |name, attributes|
     price_array << attributes[:price]
   end
-  binding.pry
   if price_array.inject(:+) > 100
     price_array.inject(:+) * 0.9
   else
