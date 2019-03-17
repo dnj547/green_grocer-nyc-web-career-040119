@@ -46,5 +46,10 @@ def checkout(cart, coupons)
   consolidated = consolidate_cart(cart)
   coupons_applied = apply_coupons(consolidated, coupons)
   clearance_applied = apply_clearance(coupons_applied)
+  price_array = []
+  clearance_applied.each do |name, attributes|
+    price_array << attributes[:price]
+  end
+  price_array
   binding.pry
 end
