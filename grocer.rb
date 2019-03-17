@@ -48,7 +48,7 @@ def checkout(cart, coupons)
   cart3 = apply_clearance(cart2)
   price_array = []
   cart3.each do |name, attributes|
-    price_array << attributes[:price]
+    price_array << attributes[:price] * attributes[:count]
   end
   if price_array.inject(:+) > 100
     price_array.inject(:+) * 0.9
