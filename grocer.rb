@@ -2,12 +2,12 @@ require 'pry'
 def consolidate_cart(cart)
   new_hash = {}
   cart.each do |item|
-    item.each do |item_name, item_attributes|
-      if !new_hash[item_name]
-        new_hash[item_name] = item_attributes
-        new_hash[item_name][:count] = 1
-      elsif new_hash[item_name]
-        new_hash[item_name][:count] += 1
+    item.each do |name, attributes|
+      if !new_hash[name]
+        new_hash[name] = attributes
+        new_hash[name][:count] = 1
+      elsif new_hash[name]
+        new_hash[name][:count] += 1
       end
     end
   end
@@ -34,7 +34,7 @@ def apply_coupons(cart, coupons)
 end
 
 def apply_clearance(cart)
-  # code here
+  cart.each do |
 end
 
 def checkout(cart, coupons)
