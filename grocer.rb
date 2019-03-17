@@ -35,7 +35,6 @@ def apply_coupons(cart, coupons)
     end
   end
   new_hash
-  binding.pry
 end
 
 def apply_clearance(cart)
