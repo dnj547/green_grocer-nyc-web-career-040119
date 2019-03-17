@@ -16,6 +16,7 @@ end
 
 def apply_coupons(cart, coupons)
   new_hash = {}
+  binding.pry
   coupons.each do |coupon|
     coupon.each do |coupon_key, coupon_value|
       cart.each do |item_name, item_attributes|
@@ -25,7 +26,6 @@ def apply_coupons(cart, coupons)
             new_hash["#{item_name} W/COUPON"] = item_attributes
             new_hash["#{item_name} W/COUPON"][:count] = coupon[:num]
             new_hash["#{item_name} W/COUPON"][:price] = coupon[:cost]
-            binding.pry
             new_hash[item_name][:count] = (item_attributes[:count] - coupon[:num])
           end
         end
