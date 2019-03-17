@@ -50,5 +50,5 @@ def checkout(cart, coupons)
   clearance_applied.each do |name, attributes|
     price_array << attributes[:price]
   end
-  price_array
+  price_array.inject(:+)
 end
