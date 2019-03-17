@@ -51,5 +51,4 @@ def checkout(cart, coupons)
     price_array << attributes[:price]
   end
   price_array
-  binding.pry
 end
