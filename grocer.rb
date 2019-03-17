@@ -36,6 +36,7 @@ end
 def apply_clearance(cart)
   cart.each do |item|
     item.each do |array|
+      binding.pry
       if array[1][:clearance]
         array[1][:price] *= 0.8
       end
