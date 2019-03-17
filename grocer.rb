@@ -20,8 +20,8 @@ def apply_coupons(cart, coupons)
     coupon.each do |coupon_key, coupon_value|
       cart.each do |item_name, item_attributes|
         new_hash[item_name] = item_attributes
-        binding.pry
         if coupon_value == item_name
+          binding.pry
           if coupon[:num] >= item_attributes[:count]
             new_hash["#{item_name} W/COUPON"] = item_attributes
             new_hash["#{item_name} W/COUPON"][:count] = coupon[:num]
