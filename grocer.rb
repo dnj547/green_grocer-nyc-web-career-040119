@@ -22,11 +22,10 @@ def apply_coupons(cart, coupons)
         new_hash[item_name] = item_attributes
         if coupon_value == item_name
           if coupon[:num] >= item_attributes[:count]
-            new_hash["#{item_name} W/COUPON"] = item_attributes
-            coupon_num = coupon[:num]
-            coupon_cost = coupon[:cost]
-            new_hash["#{item_name} W/COUPON"][:count] = coupon_num
-            new_hash["#{item_name} W/COUPON"][:price] = coupon_cost
+            item_w_coupon = "#{item_name} W/COUPON"
+            new_hash[item_w_coupon] = item_attributes
+            new_hash[item_w_coupon][:count] = coupon[:num]
+            new_hash[item_w_coupon][:price] = coupon[:cost]
             binding.pry
             new_hash[item_name][:count] = (item_attributes[:count] - coupon[:num])
           end
