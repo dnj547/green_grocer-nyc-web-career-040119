@@ -21,6 +21,7 @@ def apply_coupons(cart, coupons)
       cart.each do |item_name, item_attributes|
         item_attributes.each do |attributes_key, attributes_value|
           if coupon[:item] == item_name
+            binding.pry
             if coupon[:num] >= item_attributes[:count]
               without = item_attributes[:count] - coupon[:num]
               new_hash["#{item_name} W/COUPON"] = item_attributes
